@@ -5,7 +5,7 @@ import time
 
 st.set_page_config(
     page_icon='👨‍💻',
-    page_title="STORYBOARD",
+    page_title="RESEARCH AGENT",
 )
 
 hide_streamlit_style = """
