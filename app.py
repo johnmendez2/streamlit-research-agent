@@ -1,7 +1,9 @@
 import streamlit as st
 import requests
 import time
+import os
 
+base_url = os.getenv('BASE_URL')
 # Set page configuration
 st.set_page_config(
     page_icon='👨‍💻',
@@ -51,7 +53,7 @@ if 'token' in st.session_state:
     token = st.session_state.token
     app_id = st.session_state.app_id
     def refresh_product(taskId):
-        url = f'https://mkpl-user.staging.devsaitech.com/api/v1/user/products/{app_id}/refresh/{taskId}'
+        url = f'{base_url}/api/v1/user/products/{app_id}/refresh/{taskId}'
         headers = {
             'Content-Type': 'application/json',
             'Authorization': token    
@@ -127,7 +129,7 @@ if 'token' in st.session_state:
                 'Content-Type': 'application/json',
                 'Authorization': token    
             }
-            response = requests.post(f'https://mkpl-user.staging.devsaitech.com/api/v1/user/products/{app_id}/use', json=payload, headers=headers)
+            response = requests.post(f'{base_url}/api/v1/user/products/{app_id}/use', json=payload, headers=headers)
             
             if response.status_code == 201:
                 parsed_response_dict = response.json()
