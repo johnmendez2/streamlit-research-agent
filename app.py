@@ -89,7 +89,7 @@ if 'token' in st.session_state:
                         st.write(data["data"]["result"]["data"][5])
                     break
                 
-                elif time.time() - start_time > 120:  # Check if 120 seconds have passed
+                elif time.time() - start_time > 160:  # Check if 120 seconds have passed
                     st.error("Timeout reached without success.")
                     return []
                     break
