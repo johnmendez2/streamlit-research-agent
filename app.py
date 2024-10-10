@@ -87,6 +87,8 @@ if 'token' in st.session_state:
                     if data["data"]["result"]["data"][5] != "":
                         st.title("Youtube Links")
                         st.write(data["data"]["result"]["data"][5])
+                    else:
+                        st.write("Error in generation, please try again")
                     break
                 
                 elif time.time() - start_time > 160:  # Check if 120 seconds have passed
